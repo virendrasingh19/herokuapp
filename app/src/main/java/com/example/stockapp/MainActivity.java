@@ -2,6 +2,7 @@ package com.example.stockapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -13,13 +14,17 @@ import com.example.stockapp.databinding.ActivityMainBinding;
 import com.example.stockapp.model.MyData;
 import com.example.stockapp.view.adapterview.MainAdapter;
 import com.example.stockapp.view.adapterview.OnClickInterface;
+import com.example.stockapp.view.detailscreen.DetailScreen;
 import com.example.stockapp.view.landingscreen.MainPresenter;
 import com.example.stockapp.view.landingscreen.MainViewInterface;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements MainViewInterface, OnClickInterface {
 
+	public static final String ARG_DATA = "arg_data";
 	private ActivityMainBinding mainBinding;
 	private MainPresenter mainPresenter;
 
@@ -73,7 +78,11 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
 
 	@Override
 	public void onItemClick(MyData myData) {
-		showToast(myData.tag);
+		Intent intent = new Intent(this, DetailScreen.class);
+		Bundle bundle = new Bundle();
+		bundle.putParcelable(ARG_DATA, Parcels.wrap(myData));
+		intent.putExtras(bundle);
+		startActivity(intent);
 	}
 
 }
