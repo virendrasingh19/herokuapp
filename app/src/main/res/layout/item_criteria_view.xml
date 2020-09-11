@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tool="http://schemas.android.com/tools">
+
+	<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/colorPrimary">
+
+		<TextView
+			android:id="@+id/header_text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="@dimen/spacing_normal"
+			android:paddingTop="@dimen/spacing_normal"
+			android:textColor="@color/colorAccent"
+			android:textSize="@dimen/text_size_extra_large"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			tool:text="Top gainers" />
+
+		<TextView
+			android:id="@+id/sub_header_text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="@dimen/spacing_normal"
+			android:paddingBottom="@dimen/spacing_normal"
+			android:textColor="@color/colorAccent"
+			android:textSize="@dimen/text_size_normal"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/header_text"
+			tool:text="Top gainers" />
+
+		<View
+			android:id="@+id/dash_view"
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/spacing_tiny"
+			android:background="@drawable/dash_line"
+			android:paddingBottom="@dimen/spacing_normal"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/sub_header_text" />
+
+		<View
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/spacing_tiny"
+			android:background="@color/colorPrimary"
+			android:paddingBottom="@dimen/spacing_normal"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/dash_view" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
