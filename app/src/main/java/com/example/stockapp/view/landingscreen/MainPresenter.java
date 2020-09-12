@@ -39,7 +39,7 @@ public class MainPresenter implements MainPresenterInterface {
 					@Override
 					public void onError(Throwable e) {
 						mainViewInterface.hideProgressBar();
-						mainViewInterface.onShowError();
+						mainViewInterface.onShowError(e.getMessage());
 					}
 
 					@Override

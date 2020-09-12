@@ -11,8 +11,6 @@
 			android:id="@+id/content"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_marginStart="@dimen/spacing_small"
-			android:layout_marginEnd="@dimen/spacing_small"
 			android:maxLines="4"
 			android:padding="@dimen/spacing_small"
 			android:scrollHorizontally="false"

@@ -22,6 +22,8 @@ import org.parceler.Parcels;
 
 import java.util.List;
 
+import io.reactivex.Observable;
+
 public class MainActivity extends AppCompatActivity implements MainViewInterface, OnClickInterface {
 
 	public static final String ARG_DATA = "arg_data";
@@ -51,8 +53,26 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
 
 
 	@Override
-	public void onShowError() {
+	public void onShowError(String message) {
+		showViewsForError();
+		mainBinding.errorText.setText(message);
+		mainBinding.tryAgain.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				mainPresenter.getData();
+				hideViewsForError();
+			}
+		});
+	}
 
+	private void showViewsForError() {
+		mainBinding.errorText.setVisibility(View.VISIBLE);
+		mainBinding.tryAgain.setVisibility(View.VISIBLE);
+	}
+
+	private void hideViewsForError() {
+		mainBinding.errorText.setVisibility(View.GONE);
+		mainBinding.tryAgain.setVisibility(View.GONE);
 	}
 
 	@Override
